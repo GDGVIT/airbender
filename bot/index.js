@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const listenerFunc = require('./listener.js')
+const listenerFunc = require('./listener').listenerFunc;
 const { resolve, join } = require('path');
 const { isConstTypeReference, isConstructorDeclaration } = require('typescript');
 const client = new Discord.Client();

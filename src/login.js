@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const { resolve } = require('path');
+const { resolve, join } = require('path');
+const { isConstTypeReference, isConstructorDeclaration } = require('typescript');
 const client = new Discord.Client();
 
 function sleep(ms) {
@@ -8,14 +9,30 @@ function sleep(ms) {
 
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  var guild = client.guilds.find(guild => guild.name == process.env.GUILD)
+  var guild = client.guilds.fetch(747434513860263993).catch(e => console.log(e));
   var vc = guild.channels.find(c => c.type === 'voice');
-  vc.join().then(connection => {
+  vc.join().then(conn => {
     console.log("Joined voice channel successfully");
-    
-    client.on('guildMemberSpeaking', function(member, speaking) {
-      console.log(member.tag, speaking)
-    })
+    console.log(`Current members: ${conn.channel.members.array()}`);
+
+    const reciever = conn.reciever;
+    console.log("Play join.mp3");
+    dispatcher = conn.playFile("audio/sound.mp3", { passes: 5 });
+    dispatcher.on('start', () => {
+      console.log('Play starting');
+    });
+    dispatcher.on('end', () => {
+      console.log("Finished playing");
+    });
+    conn.on('error', (error) => console.log(error));
+    conn.on('failed', (error) => console.log("Failed: ", error));
+    conn.on('speaking', (user, speaking) => {
+          // console.log("Speaking: ", speaking);
+          console.log("Listening to user: ", user.username);
+          console.log("Speaking: ", speaking);
+
+          const audiosteam = reciever.createStream(user, { mode: 'pcm' });
+    });
   }).catch(e => console.log(e));
 });
 

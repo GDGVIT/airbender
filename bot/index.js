@@ -1,27 +1,27 @@
 const Discord = require('discord.js');
 const listenerFunc = require('./listener').listenerFunc;
-const { resolve, join } = require('path');
-const { isConstTypeReference, isConstructorDeclaration } = require('typescript');
 const client = new Discord.Client();
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-// client.on('guildMemberSpeaking', function(member, speaking) {
-//   console.log(member.tag, "is speaking?", speaking);
-// })
-
-client.on('message', msg => {
+client.on('message', async msg => {
+  console.log("Message received: ", msg.content);
   if (msg.author.bot) return;
   if (!msg.content.startsWith(process.env.PREFIX)) return;
-  if (Discord.Message.member.voice.channel) {
-    const connection = await msg.member.voice.channel.join();
-    listenerFunc(connection);
+  console.log("Message is valid");
+  var contents = msg.contents.split(" ");
+
+  if (contents[1] === 'join') {
+    if (msg.member.voice.channel) {
+      const connection = await msg.member.voice.channel.join();
+      listenerFunc(connection);
+    }
+  } else if (contents[1] === 'leave') {
+      if (msg.member.voice.channel) {
+        msg.member.voice.channel.leave();
+      }
   }
 });
 

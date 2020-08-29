@@ -1,4 +1,4 @@
-function handleMessage(msg) {
+const handleMessage = (msg) => {
     console.log("Message received: ", msg.content);
     let result = {
         "valid": false,

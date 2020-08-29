@@ -1,4 +1,4 @@
-function listen(conn, sc) {
+const listen = (conn, sc) => {
     console.log("Joined voice channel successfully");
     console.log("Play join.mp3");
 

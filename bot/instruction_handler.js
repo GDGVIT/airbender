@@ -7,6 +7,10 @@ const handleInstruction = async (instruction, message, speechConnection) => {
             if (message.member.voice.channel) {
               const connection = await message.member.voice.channel.join();
               listenerFunc(connection, speechConnection);
+            } else {
+              message.reply(
+                'I can join whatever voice channel you\'re in. That means you need to join a voice channel first!'
+              )
             };
             break;
 
@@ -17,7 +21,7 @@ const handleInstruction = async (instruction, message, speechConnection) => {
             break;
 
         default: 
-            message.reply('Invalid command. For help with usage, try the help command');
+            message.reply('invalid command. For help with usage, try the help command');
     }
 }
 

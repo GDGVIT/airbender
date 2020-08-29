@@ -1,4 +1,4 @@
-function listen(conn) {
+function listen(conn, sc) {
     console.log("Joined voice channel successfully");
     console.log("Play join.mp3");
 
@@ -17,8 +17,7 @@ function listen(conn) {
     conn.on('failed', (error) => console.log("Failed: ", error));
 
     conn.on('speaking', (user, speaking) => {
-        console.log(user);
-        console.log(speaking);
+        sc.emit('speechChange', user, speaking);
     });
 }
 

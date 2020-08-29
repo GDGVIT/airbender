@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
+
 const handleMessage = require('./message_handler').handleMessage;
 const listenerFunc = require('./listener').listenerFunc;
+var speechConnection = require('./speech_event').speechConnection;
+
 const client = new Discord.Client();
 
 client.on('ready', async () => {
@@ -14,7 +17,7 @@ client.on('message', async message => {
   if (msg.instruction === 'join') {
     if (msg.member.voice.channel) {
       const connection = await msg.member.voice.channel.join();
-      listenerFunc(connection);
+      listenerFunc(connection, speechConnection);
     }
   } else if (msg.instruction === 'leave') {
       if (msg.member.voice.channel) {
@@ -28,3 +31,5 @@ client
     .catch(error => {
         console.log(error);
     });
+
+exports.connection = speechConnection;

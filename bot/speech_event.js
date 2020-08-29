@@ -1,15 +1,12 @@
+const { EventEmitter } = require('events');
 const events = require('events');
 
-var speechConnection = new events.EventEmitter();
+class SpeechConnection extends EventEmitter {
+    emitObject(event, ...args) {
+        this.emit(event, args);
+        return args;
+    }
+}
 
-speechConnection.addListener('speechChange', (user, speaking) => {
-    console.log(user);
-    console.log(speaking);
-
-    return {
-        "user": user,
-        "speaking": speaking
-    };
-});
-
+var speechConnection = new SpeechConnection();
 exports.speechConnection = speechConnection;

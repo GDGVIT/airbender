@@ -17,7 +17,7 @@ function listen(conn, sc) {
     conn.on('failed', (error) => console.log("Failed: ", error));
 
     conn.on('speaking', (user, speaking) => {
-        sc.emit('speechChange', user, speaking);
+        sc.emitObject('speechChange', user, speaking);
     });
 }
 

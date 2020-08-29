@@ -12,7 +12,12 @@ const handleMessage = (msg) => {
     console.log("Message is valid");
     result.valid = true;
 
-    const args = msg.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
+    const args = msg
+        .content
+        .slice(process.env.PREFIX.length)
+        .trim()
+        .split(/ +/g);
+        
     const command = args.shift().toLowerCase();
     result.instruction = command;
 

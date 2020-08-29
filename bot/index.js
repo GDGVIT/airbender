@@ -15,13 +15,13 @@ client.on('message', async message => {
   if (!msg.valid) return;
 
   if (msg.instruction === 'join') {
-    if (msg.member.voice.channel) {
-      const connection = await msg.member.voice.channel.join();
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
       listenerFunc(connection, speechConnection);
     }
   } else if (msg.instruction === 'leave') {
-      if (msg.member.voice.channel) {
-          msg.member.voice.channel.leave();
+      if (message.member.voice.channel) {
+          message.member.voice.channel.leave();
     }
   }
 });

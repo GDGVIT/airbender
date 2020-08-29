@@ -1,5 +1,4 @@
 const { EventEmitter } = require('events');
-const events = require('events');
 
 class SpeechConnection extends EventEmitter {
     emitObject(event, ...args) {

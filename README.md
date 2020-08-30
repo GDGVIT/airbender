@@ -2,8 +2,8 @@
 <a href="https://dscvit.com">
 	<img src="https://user-images.githubusercontent.com/30529572/72455010-fb38d400-37e7-11ea-9c1e-8cdeb5f5906e.png" alt="DSC VIT"/>
 </a>
-	<h2 align="center"> < Insert Project Title Here > </h2>
-	<h4 align="center"> < Insert Project Description Here > <h4>
+	<h2 align="center"> Airbender </h2>
+	<h4 align="center"> Draw and highlight user avatars in Discord Voice Channel <h4>
 </p>
 
 ---
@@ -12,9 +12,7 @@
 
 
 ## Functionalities
-- [ ]  < insert functionality >
-- [ ]  < insert functionality >
-- [ ]  < insert functionality >
+- [X]  Fire an event every time a user in a Voice Channel starts or stops speaking
 - [ ]  < insert functionality >
 
 <br>
@@ -22,19 +20,20 @@
 
 ## Instructions to run
 
-* Pre-requisites:
+<!-- * Pre-requisites:
 	-  < insert pre-requisite >
-	-  < insert pre-requisite >
+	-  < insert pre-requisite > -->
 
-* < directions to install > 
+* < directions to set-up dev environment > 
 ```bash
-< insert code >
+cd /path/to/this/directory
+npm install
 ```
 
 * < directions to execute >
 
 ```bash
-< insert code >
+node index.js
 ```
 
 ## Contributors
@@ -45,7 +44,7 @@
 
 <td>
 
-John Doe
+Shantanu Verma
 
 <p align="center">
 <img src = "https://dscvit.com/images/dsc-logo-square.svg" width="150" height="150" alt="Your Name Here (Insert Your Image Link In Src">

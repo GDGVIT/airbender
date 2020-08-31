@@ -13,14 +13,6 @@ client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('invalidated', () => {
-  console.log('bye bye');
-  client.destroy();
-  // client.voice.connections.forEach((conn) => {
-  //   conn.disconnect();
-  // });
-});
-
 client.on('message', async message => {
   let msg = handleMessage(message);
   if (!msg.valid) return;

@@ -4,12 +4,21 @@ const { handleMessage } = require('./message_handler');
 const { speechConnection } = require('./speech_event');
 const { handleInstruction } = require('./instruction_handler');
 const { updateUsers } = require('./users_info');
+const { gracefullyExit } = require('./exit_handler');
 
 const client = new Discord.Client();
 channelCurrentMembers = new Set();
 
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('invalidated', () => {
+  console.log('bye bye');
+  client.destroy();
+  // client.voice.connections.forEach((conn) => {
+  //   conn.disconnect();
+  // });
 });
 
 client.on('message', async message => {
@@ -28,6 +37,11 @@ client
     .catch(error => {
         console.error(error);
     });
+
+// Handle graceful exit -
+process.once('exit', () => gracefullyExit({cleanup: true}, client));
+process.once('SIGINT', () => gracefullyExit({cleanup: true}, client));
+
 
 exports.connection = speechConnection;
 exports.memberList = channelCurrentMembers;

@@ -1,0 +1,40 @@
+body{
+    background-color: #000000;
+    color: white;
+    font-family: monospace;
+}
+.heading{
+    text-align: center;
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 20vh;
+    max-width: 100%;
+}
+.icon{
+    border-radius: 100%;
+    width: 15vw;
+}
+.icon:hover{
+    box-shadow: 0 0 8px rgba(231, 217, 217, 0.6); 
+}
+.info{
+    text-align: center;
+    font-weight: 600;
+
+}
+.footer{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.dsclogo{
+    width: 35vw;
+    float: left;
+}

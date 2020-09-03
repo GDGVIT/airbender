@@ -1,41 +1,56 @@
+@font-face {
+    font-family: "DSCFont";
+    src:url(".././fonts/OpenSans-Regular.ttf");
+}
 body{
     background-color: #000000;
     color: white;
-    font-family: monospace;
+    font-family:  "DSCFont";
 }
 .heading{
     text-align: center;
+    padding: 10vh;
+    margin-top: 15vh;
 }
 .container{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 20vh;
+    margin-top: 10vh;
     max-width: 100%;
 }
 .icon{
     border-radius: 100%;
-    width: 15vw;
+    width: 10vw;
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
 }
 .icon:hover{
     box-shadow: 0 0 40px rgba(139, 11, 243, 0.6); 
+    -webkit-transform: scale(1.2) rotate(0.01deg);
+    transform: scale(1.2) rotate(0.01deg);
 }
 .iconspeak{
     box-shadow: 0 0 40px rgba(139, 11, 243, 0.6); 
+    -webkit-transform: scale(1.2) rotate(0.01deg);
+    transform: scale(1.2) rotate(0.01deg);
 }
 .info{
     text-align: center;
     font-weight: 600;
-
+    padding: 25px;
+}
+#tag{
+    font-style: italic;
 }
 .footer{
     padding: 10px;
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
+    /* width: 100%; */
+    /* position: fixed;
+    top: 0; */
 }
 .dsclogo{
     width: 35vw;

@@ -30,7 +30,7 @@ function members(){
       <img src="./assets/blushing_dino.png" class="icon" id=${val.discriminator}>
       <div class="info">
         <p>${val.username}</p>
-        <!-- <p>Head of Dinos</p> -->
+        <!-- <p id="tag">Head of Dinos</p> -->
       </div>
     </div>
     `

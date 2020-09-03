@@ -70,9 +70,13 @@ function getMembers(){
 // To get speech change info, listen to this event:
 
 function getSpeaker(){
-  bot.on('speechChange', currentState => {
-    console.log("CS", currentState);
-    mainWindow.webContents.send('speakerInfo', currentState)
+  bot.on('speechChange' ,  ([user, speaking]) => {
+    console.log("CS", user, speaking);
+    if(speaking.bitfield == 1){
+      mainWindow.webContents.send('speakerInfo',user)
+    } else {
+      console.log('aha! you aint speaking!')
+    }
   });
 }
 

@@ -21,6 +21,9 @@ body{
 .icon:hover{
     box-shadow: 0 0 40px rgba(139, 11, 243, 0.6); 
 }
+.iconspeak{
+    box-shadow: 0 0 40px rgba(139, 11, 243, 0.6); 
+}
 .info{
     text-align: center;
     font-weight: 600;

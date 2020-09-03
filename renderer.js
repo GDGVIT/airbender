@@ -2,9 +2,18 @@
 const { ipcRenderer } = require('electron')
 
 let memberList;
+let speaker;
 ipcRenderer.on('speakerInfo', (event, message) => {
   console.log("From Main Speaker list",message)
+  speaker = message;
+  speakers();
 })
+
+function speakers(){
+  console.log("YOOOOOOOOOOO",speaker.discriminator)
+  var s = document.getElementById(speaker.discriminator)
+  s.classList.add('iconspeak')
+}
 
 ipcRenderer.on('membersInfo', (event, message) => {
   console.log("From Main Members list",message)
@@ -18,7 +27,7 @@ function members(){
     console.log(val);
     members_list += `
     <div class="person">
-      <img src="./assets/blushing_dino.png" class="icon">
+      <img src="./assets/blushing_dino.png" class="icon" id=${val.discriminator}>
       <div class="info">
         <p>${val.username}</p>
         <!-- <p>Head of Dinos</p> -->

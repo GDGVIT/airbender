@@ -17,8 +17,7 @@ fetch('http://localhost:8080/users/info',{
 
 
 // Get image of the user
-function getImages(username){
-  let burl;
+function getImages(username,id){
   fetch('http://localhost:8080/users/image/'+username,{
   method:"GET",            
   headers: {
@@ -30,8 +29,8 @@ function getImages(username){
     console.log(data)
     burl = URL.createObjectURL(data)
     console.log(burl)
+    document.getElementById(id).src = burl
   })
-  return burl;
 }
 
 let memberList;
@@ -59,17 +58,16 @@ function members(){
   for (var it=memberList[0].values(), val = null; val=it.next().value; ) {
     if(usersList.hasOwnProperty(val.username)){
       you = val.username;
-      uimg = getImages(val.username);
-      console.log(uimg)
       members_list += `
       <div class="person">
-        <img src=${uimg} class="icon" id=${val.discriminator}>
+        <img src class="icon" id=${val.discriminator}>
         <div class="info">
           <p>${usersList[you]["display_name"]}</p>
           <p id="tag">${usersList[you]["tagline"]}</p> 
         </div>
       </div>
       `
+      getImages(val.username,val.discriminator);
     }
   } 
   document.getElementById('container').innerHTML = members_list;

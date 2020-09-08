@@ -20,6 +20,9 @@ body{
     margin-top: 10vh;
     max-width: 100%;
 }
+.person{
+    text-align:center;
+}
 .icon{
     border-radius: 100%;
     width: 10vw;

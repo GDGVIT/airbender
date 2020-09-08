@@ -5,7 +5,14 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
     <!-- <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval';worker-src blob:; child-src blob: gap:;img-src 'self' blob: data:;" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src 'self' http://XX.XX.XX.XX:8084/mypp/"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" 
+    content="
+      worker-src blob:; 
+      child-src blob: gap:;
+      img-src 'self' blob: data:;
+      default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:"> -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/skeleton.css" />
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />

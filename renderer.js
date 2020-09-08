@@ -1,5 +1,38 @@
 // In renderer process (web page).
-const { ipcRenderer } = require('electron')
+const { ipcRenderer } = require('electron');
+
+let usersList;
+// Fetch Users from local backend
+fetch('http://localhost:8080/users/info',{
+  method:"GET",            
+  headers: {
+    'Content-Type': 'application/json'
+   }
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+    usersList = data
+  })
+
+
+// Get image of the user
+function getImages(username){
+  let burl;
+  fetch('http://localhost:8080/users/image/'+username,{
+  method:"GET",            
+  headers: {
+    'Content-Type': 'image/png'
+  }
+  })
+  .then(res => res.blob())
+  .then(data => {
+    console.log(data)
+    burl = URL.createObjectURL(data)
+    console.log(burl)
+  })
+  return burl;
+}
 
 let memberList;
 let speaker;
@@ -24,16 +57,20 @@ ipcRenderer.on('membersInfo', (event, message) => {
 function members(){
   let members_list = '';
   for (var it=memberList[0].values(), val = null; val=it.next().value; ) {
-    console.log(val);
-    members_list += `
-    <div class="person">
-      <img src="./assets/blushing_dino.png" class="icon" id=${val.discriminator}>
-      <div class="info">
-        <p>${val.username}</p>
-        <!-- <p id="tag">Head of Dinos</p> -->
+    if(usersList.hasOwnProperty(val.username)){
+      you = val.username;
+      uimg = getImages(val.username);
+      console.log(uimg)
+      members_list += `
+      <div class="person">
+        <img src=${uimg} class="icon" id=${val.discriminator}>
+        <div class="info">
+          <p>${usersList[you]["display_name"]}</p>
+          <p id="tag">${usersList[you]["tagline"]}</p> 
+        </div>
       </div>
-    </div>
-    `
+      `
+    }
   } 
   document.getElementById('container').innerHTML = members_list;
 }

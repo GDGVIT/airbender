@@ -6,6 +6,8 @@ const { handleInstruction } = require('./instruction_handler');
 const { updateUsers } = require('./users_info');
 const { gracefullyExit } = require('./exit_handler');
 
+const env = require('../env.json');
+
 const client = new Discord.Client();
 channelCurrentMembers = new Set();
 
@@ -25,7 +27,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 });
 
 client
-    .login(process.env.DISCORD_TOKEN)
+    .login(env.DISCORD_TOKEN)
     .catch(error => {
         console.error(error);
     });

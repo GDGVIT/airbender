@@ -37,14 +37,27 @@ let memberList;
 let speaker;
 ipcRenderer.on('speakerInfo', (event, message) => {
   console.log("From Main Speaker list",message)
-  speaker = message;
-  speakers();
+  speaker = message[0];
+  
+  if(message[1].bitfield) {
+    speakers();
+  }
+  else {
+    removeSpeaker();
+  }
+
 })
 
 function speakers(){
   console.log("YOOOOOOOOOOO",speaker.discriminator)
   var s = document.getElementById(speaker.discriminator)
   s.classList.add('iconspeak')
+}
+
+function removeSpeaker() {
+  console.log("Stopped speaking")
+  var s = document.getElementById(speaker.discriminator)
+  s.classList.remove('iconspeak')
 }
 
 ipcRenderer.on('membersInfo', (event, message) => {

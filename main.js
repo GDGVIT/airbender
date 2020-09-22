@@ -72,11 +72,8 @@ function getMembers(){
 function getSpeaker(){
   bot.on('speechChange' ,  ([user, speaking]) => {
     console.log("CS", user, speaking);
-    if(speaking.bitfield == 1){
-      mainWindow.webContents.send('speakerInfo',user)
-    } else {
-      console.log('aha! you aint speaking!')
-    }
+      mainWindow.webContents.send('speakerInfo',[user,speaking])
+
   });
 }
 

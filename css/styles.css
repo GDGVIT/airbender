@@ -87,20 +87,34 @@ body{
     animation: pulse 3s infinite;
     animation-name: pulse;
 }
+.layout{
+    min-height: 1000px;
+    position: relative;
+}
 /* Pulse animation for speaker */
 @keyframes pulse {
     0% {
-        transform: scale(1.1);
+        transform: scale(1);
       box-shadow: 0 0 30px rgba(139, 11, 243, 0.6); 
       box-shadow: 0 0 30px rgba(112, 5, 201, 0.6); 
       }
-      50% {
-        transform: scale(1.2);
+      25% {
+        transform: scale(1.1);
         box-shadow: 0 0 40px rgba(139, 11, 243, 0.6); 
       box-shadow: 0 0 50px rgba(112, 5, 201, 0.6); 
       }
-      100% {
+      50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 100px rgba(174, 78, 253, 0.6); 
+      box-shadow: 0 0 60px rgba(112, 5, 201, 0.6); 
+      }     
+      75% {
         transform: scale(1.1);
+        box-shadow: 0 0 60px rgba(174, 78, 253, 0.6); 
+      box-shadow: 0 0 50px rgba(112, 5, 201, 0.6); 
+      }
+      100% {
+        transform: scale(1);
       box-shadow: 0 0 30px rgba(139, 11, 243, 0.6);
       box-shadow: 0 0 30px rgba(112, 5, 201, 0.6); 
       }

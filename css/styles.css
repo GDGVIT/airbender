@@ -13,7 +13,7 @@ body{
     /* padding: 10vh; */
     /* margin-top: 15vh; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     bottom: 40px;
     right: 40px;
@@ -70,20 +70,20 @@ body{
     transition: transform 0.4s;
     box-shadow: 0 0 10px rgba(139, 11, 243, 0.6); 
 }
-.icon:hover{
-    /* box-shadow: 0 0 40px rgba(139, 11, 243, 0.6);  */
-    /* -webkit-transform: scale(1.2) rotate(0.01deg); */
-    /* transform: scale(1.2) rotate(0.01deg); */
+/* .icon:hover{
+    box-shadow: 0 0 40px rgba(139, 11, 243, 0.6); 
+    -webkit-transform: scale(1.2) rotate(0.01deg);
+    transform: scale(1.2) rotate(0.01deg);
     animation: pulse 3s infinite;
     animation-name: pulse;
-}
+} */
 
 .iconspeak{
     /* box-shadow: 0 0 40px rgba(139, 11, 243, 0.6);  */
     /* box-shadow: 0 0 50px rgba(110, 2, 199, 0.6); 
     box-shadow: 0 0 60px rgba(88, 1, 160, 0.9);  */
-    /* -webkit-transform: scale(1.2) rotate(0.01deg); */
-    /* transform: scale(1.2) rotate(0.01deg); */
+    -webkit-transform: scale(1.2) rotate(0.01deg);
+    transform: scale(1.2) rotate(0.01deg);
     animation: pulse 3s infinite;
     animation-name: pulse;
 }
@@ -94,47 +94,47 @@ body{
 /* Pulse animation for speaker */
 @keyframes pulse {
     0% {
-        transform: scale(1);
       box-shadow: 0 0 30px rgba(139, 11, 243, 0.6); 
       box-shadow: 0 0 30px rgba(112, 5, 201, 0.6); 
       }
       25% {
-        transform: scale(1.1);
-        box-shadow: 0 0 40px rgba(139, 11, 243, 0.6); 
+      box-shadow: 0 0 40px rgba(139, 11, 243, 0.6); 
       box-shadow: 0 0 50px rgba(112, 5, 201, 0.6); 
       }
       50% {
-        transform: scale(1.2);
-        box-shadow: 0 0 100px rgba(174, 78, 253, 0.6); 
+      box-shadow: 0 0 100px rgba(174, 78, 253, 0.6); 
       box-shadow: 0 0 60px rgba(112, 5, 201, 0.6); 
       }     
       75% {
-        transform: scale(1.1);
         box-shadow: 0 0 60px rgba(174, 78, 253, 0.6); 
       box-shadow: 0 0 50px rgba(112, 5, 201, 0.6); 
       }
       100% {
-        transform: scale(1);
       box-shadow: 0 0 30px rgba(139, 11, 243, 0.6);
       box-shadow: 0 0 30px rgba(112, 5, 201, 0.6); 
       }
   }
   @-webkit-keyframes pulse {
     0% {
-        transform: scale(1.1);
-      box-shadow: 0 0 30px rgba(139, 11, 243, 0.6); 
-      box-shadow: 0 0 30px rgba(112, 5, 201, 0.6); 
-      }
-      50% {
-        transform: scale(1.2);
+        box-shadow: 0 0 30px rgba(139, 11, 243, 0.6); 
+        box-shadow: 0 0 30px rgba(112, 5, 201, 0.6); 
+        }
+        25% {
         box-shadow: 0 0 40px rgba(139, 11, 243, 0.6); 
-      box-shadow: 0 0 50px rgba(112, 5, 201, 0.6); 
-      }
-      100% {
-        transform: scale(1.1);
-      box-shadow: 0 0 30px rgba(139, 11, 243, 0.6);
-      box-shadow: 0 0 30px rgba(112, 5, 201, 0.6); 
-      }
+        box-shadow: 0 0 50px rgba(112, 5, 201, 0.6); 
+        }
+        50% {
+        box-shadow: 0 0 100px rgba(174, 78, 253, 0.6); 
+        box-shadow: 0 0 60px rgba(112, 5, 201, 0.6); 
+        }     
+        75% {
+          box-shadow: 0 0 60px rgba(174, 78, 253, 0.6); 
+        box-shadow: 0 0 50px rgba(112, 5, 201, 0.6); 
+        }
+        100% {
+        box-shadow: 0 0 30px rgba(139, 11, 243, 0.6);
+        box-shadow: 0 0 30px rgba(112, 5, 201, 0.6); 
+        }
   }
 .info{
     text-align: center;
@@ -166,7 +166,7 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #221B42;
     font-weight: 800;
-    position: absolute;
+    position: fixed;
     font-size: 25rem;
     top: -88px;
     z-index: -1;
@@ -176,10 +176,19 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #221B42;
     font-weight: 800;
-    position: absolute;
-    font-size: 27rem;
+    position: fixed;
+    font-size: 35rem;
     top: 695px;
     z-index: -1;
     right: 0;
     margin: 0;
+}
+
+@media(max-width: 1600px){
+    .back-down{
+        font-size: 25rem;
+    }
+    .back-top{
+        font-size: 22rem;
+    }
 }

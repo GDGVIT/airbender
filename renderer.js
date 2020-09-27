@@ -34,7 +34,7 @@ function getImages(username,id){
 }
 
 let memberList;
-let currentmemberList;
+let currentmemberList = [[]];
 let speaker;
 ipcRenderer.on('speakerInfo', (event, message) => {
   console.log("From Main Speaker list",message)
@@ -66,13 +66,17 @@ ipcRenderer.on('membersInfo', (event, message) => {
   console.log("NEWWW",memberList);
   console.log('Current', currentmemberList);
   memberList = message;
-  if (currentmemberList != JSON.stringify(memberList[0])){
+  console.log('TEST',JSON.stringify(Array.from(memberList[0])));
+  if (JSON.stringify(Array.from(currentmemberList[0])) !== JSON.stringify(Array.from(memberList[0]))){
     members();
-    currentmemberList = JSON.stringify(memberList[0])
+    currentmemberList = memberList
   } else {
-    currentmemberList =JSON.stringify(memberList[0])
-    console.log('NOT SAMEEEEEEEEE')
+    currentmemberList = memberList
+    console.log('SAMEEEEEEEEE')
   }
+
+  console.log("OUTNEWW",memberList);
+  console.log('OUT CURRENTT', currentmemberList);
 })
 
 function members(){

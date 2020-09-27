@@ -11,6 +11,9 @@ const env = require('../env.json');
 const client = new Discord.Client();
 channelCurrentMembers = new Set();
 
+// // DEBUG
+// client.on('debug', console.log)
+
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });

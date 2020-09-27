@@ -34,11 +34,12 @@ function getImages(username,id){
 }
 
 let memberList;
+let currentmemberList;
 let speaker;
 ipcRenderer.on('speakerInfo', (event, message) => {
   console.log("From Main Speaker list",message)
   speaker = message[0];
-  
+  console.log(speaker, message[1])
   if(message[1].bitfield) {
     speakers();
   }
@@ -62,8 +63,16 @@ function removeSpeaker() {
 
 ipcRenderer.on('membersInfo', (event, message) => {
   console.log("From Main Members list",message)
+  console.log("NEWWW",memberList);
+  console.log('Current', currentmemberList);
   memberList = message;
-  members();
+  if (currentmemberList != JSON.stringify(memberList[0])){
+    members();
+    currentmemberList = JSON.stringify(memberList[0])
+  } else {
+    currentmemberList =JSON.stringify(memberList[0])
+    console.log('NOT SAMEEEEEEEEE')
+  }
 })
 
 function members(){

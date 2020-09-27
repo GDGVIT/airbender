@@ -34,6 +34,7 @@ function getImages(username,id){
 }
 
 let memberList;
+let currentmemberList;
 let speaker;
 ipcRenderer.on('speakerInfo', (event, message) => {
   console.log("From Main Speaker list",message)
@@ -63,7 +64,11 @@ function removeSpeaker() {
 ipcRenderer.on('membersInfo', (event, message) => {
   console.log("From Main Members list",message)
   memberList = message;
-  members();
+  if (currentmemberList != memberList){
+    members();
+  } else {
+    currentmemberList = memberList;
+  }
 })
 
 function members(){

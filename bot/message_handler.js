@@ -1,3 +1,5 @@
+const env = require('../env.json')
+
 const handleMessage = (msg) => {
     console.log("Message received: ", msg.content);
     let result = {
@@ -7,14 +9,14 @@ const handleMessage = (msg) => {
 
     if (msg.author.bot) return result;
 
-    if (!msg.content.startsWith(process.env.PREFIX)) return result;
+    if (!msg.content.startsWith(env.PREFIX)) return result;
 
     console.log("Message is valid");
     result.valid = true;
 
     const args = msg
         .content
-        .slice(process.env.PREFIX.length)
+        .slice(env.PREFIX.length)
         .trim()
         .split(/ +/g);
         

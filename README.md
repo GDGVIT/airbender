@@ -24,13 +24,13 @@
 	-  < insert pre-requisite >
 	-  < insert pre-requisite > -->
 
-* < directions to set-up dev environment > 
+* Directions to set-up dev environment
 ```bash
 cd /path/to/this/directory
 npm install
 ```
 
-* < directions to execute >
+* Directions to execute 
 
 ```bash
 node index.js
@@ -50,8 +50,8 @@ Shantanu Verma
 <img src = "https://dscvit.com/images/dsc-logo-square.svg" width="150" height="150" alt="Your Name Here (Insert Your Image Link In Src">
 </p>
 <p align="center">
-<a href = "https://github.com/person1"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
-<a href = "https://www.linkedin.com/in/person1">
+<a href = "https://github.com/SaurusXI"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
+<a href = "https://www.linkedin.com/in/shantanu-verma-18a67b179/">
 <img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
 </a>
 </p>

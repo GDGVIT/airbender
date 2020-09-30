@@ -1,0 +1,12 @@
+{
+    "username1": {
+        "display_name": "foo",
+        "tagline": "bar",
+        "avatar_path": "./users/username1.png"
+    },
+    "username2": {
+        "display_name": "bar",
+        "tagline": "foo",
+        "avatar_path": "./users/username2.png"
+    }
+}

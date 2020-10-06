@@ -15,6 +15,19 @@ fetch('http://localhost:8080/users/info',{
     usersList = data
   })
 
+// Fetch podcast title
+fetch('http://localhost:8080/title',{
+  method:"GET",            
+  headers: {
+    'Content-Type': 'application/json'
+   }
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+    document.getElementById('title').innerHTML = data.title;
+  })
+
 
 // Get image of the user
 function getImages(username,id){

@@ -25,7 +25,7 @@ fetch('http://localhost:8080/title',{
   .then(res => res.json())
   .then(data => {
     console.log(data)
-    document.getElementById('title').innerHTML = `Ep. ${data.episodeNumber}-${data.title}`
+    document.getElementById('title').innerHTML = `Ep. ${data.episodeNumber} - ${data.title}`
   })
 
 

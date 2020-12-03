@@ -26,6 +26,7 @@ fetch('http://localhost:8080/title',{
   .then(data => {
     console.log(data)
     document.getElementById('title').innerHTML = data.title;
+    document.getElementById('episode').innerHTML = `Ep. + ${data.episodeNumber}`
   })
 
 

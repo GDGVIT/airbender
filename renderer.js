@@ -26,7 +26,7 @@ fetch('http://localhost:8080/title',{
   .then(data => {
     console.log(data)
     document.getElementById('title').innerHTML = data.title;
-    document.getElementById('episodeNum').innerHTML = 'Ep. ' + data.episodeNumber;
+    document.getElementById('episodeNum').innerHTML = 'EP' + stringifyEpNum(data.episodeNumber);
   })
 
 
@@ -111,4 +111,13 @@ function members(){
     }
   } 
   document.getElementById('container').innerHTML = members_list;
+}
+
+
+function stringifyEpNum(episodeNum) {
+  if (episodeNum < 10) {
+    return '0' + episodeNum
+  } else {
+    return episodeNum
+  }
 }

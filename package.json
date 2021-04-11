@@ -4,7 +4,7 @@
   "description": "<p align=\"center\"> <a href=\"https://dscvit.com\"> \t<img src=\"https://user-images.githubusercontent.com/30529572/72455010-fb38d400-37e7-11ea-9c1e-8cdeb5f5906e.png\" alt=\"DSC VIT\"/> </a> \t<h2 align=\"center\"> Airbender </h2> \t<h4 align=\"center\"> Draw and highlight user avatars in Discord Voice Channel <h4> </p>",
   "main": "main.js",
   "dependencies": {
-    "discord.js": "^12.3.1",
+    "discord.js": "^12.4.0",
     "ffmpeg-static": "^4.2.7",
     "opusscript": "^0.0.7",
     "typescript": "^4.0.3"
